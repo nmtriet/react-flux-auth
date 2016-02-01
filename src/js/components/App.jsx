@@ -18,15 +18,12 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        LoginStore.addChangeListener(this._onChange);
+        this._loginListener = state => this.setState(getLoginState());
+        LoginStore.addChangeListener(this._loginListener);
     }
 
     componentWillUnmount() {
         LoginStore.removeChangeListener(this.changeListener);
-    }
-
-    _onChange() {
-        this.setState(getLoginState());
     }
 
     render() {

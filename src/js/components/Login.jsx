@@ -24,11 +24,11 @@ class Login extends React.Component {
         return (
             <form onSubmit={this.handleSubmit.bind(this)}>
                 <div className="form-group">
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input ref="email" placeholder="email" id="email" className="form-control" defaultValue="trietnguyen308@gmail.com" />
                 </div>
                 <div className="form-group">
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input ref="password" placeholder="password" id="password" className="form-control" />
                 </div>
                 <div className="form-group">
