@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-const User = React.createClass({
+class User extends React.Component {
 	render() {
 		if (typeof localStorage.user != 'undefined') {
 			var user_info = JSON.parse(localStorage.user);
@@ -13,5 +13,5 @@ const User = React.createClass({
 			</div>
 		)
 	}
-});
+}
 module.exports = User;

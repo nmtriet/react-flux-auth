@@ -11,22 +11,23 @@ function getLoginState() {
     };
 }
 
-const App = React.createClass({
-    getInitialState() {
-        return getLoginState();
-    },
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = getLoginState();
+    }
 
     componentDidMount() {
         LoginStore.addChangeListener(this._onChange);
-    },
+    }
 
     componentWillUnmount() {
         LoginStore.removeChangeListener(this.changeListener);
-    },
+    }
 
     _onChange() {
         this.setState(getLoginState());
-    },
+    }
 
     render() {
         return (
@@ -36,7 +37,7 @@ const App = React.createClass({
                     {this.props.children}
                 </div>
             </div>
-        )
+        );
     }
-});
+}
 module.exports = App;

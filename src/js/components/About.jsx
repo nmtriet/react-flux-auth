@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-const About = React.createClass({
+class About extends React.Component {
 	render() {
-		return <h1>About</h1>
+		return <h1>About</h1>;
 	}
-});
+}
 module.exports = About;

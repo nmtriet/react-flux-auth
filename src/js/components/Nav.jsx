@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Link } from 'react-router';
 import LoginStore from '../stores/LoginStore';
 
-const Nav = React.createClass({
+class Nav extends React.Component {
 	render() {
 		return (
 			<nav className="navbar navbar-default">
@@ -24,6 +24,5 @@ const Nav = React.createClass({
 			</nav>
 		);
 	}
-});
-
+}
 module.exports = Nav;

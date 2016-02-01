@@ -3,12 +3,13 @@ import { render } from 'react-dom';
 import auth from '../utils/auth';
 import { createHistory, useBasename } from 'history';
 
-const Login = React.createClass({
-    getInitialState() {
-        return {
+class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             error: false
-        }
-    },
+        };
+    }
 
     handleSubmit(event) {
         event.preventDefault();
@@ -17,7 +18,7 @@ const Login = React.createClass({
         const password = this.refs.password.value;
 
         auth.login(email, password);
-    },
+    }
 
     render() {
         return (
@@ -39,5 +40,5 @@ const Login = React.createClass({
             </form>
         )
     }
-});
+};
 module.exports = Login;
