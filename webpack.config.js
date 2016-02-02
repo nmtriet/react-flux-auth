@@ -1,10 +1,8 @@
-var path = require('path');
-
 module.exports = {
     entry: './src/app.jsx',
     output: {
-        path: './build',
-        publicPath: '/build/',
+        path: './build/js',
+        publicPath: '/build/js/',
         filename: 'bundle.js',
     },
     module: {
