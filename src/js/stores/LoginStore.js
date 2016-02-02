@@ -1,5 +1,6 @@
 import BaseStore from './BaseStore';
 import history from '../utils/history';
+import DataAPI from '../utils/DataAPI';
 
 class LoginStore extends BaseStore {
     constructor() {
@@ -13,14 +14,15 @@ class LoginStore extends BaseStore {
         switch(action.actionType) {
             case 'LOGIN_USER':
                 console.log('Store receives Login action with username: ' + action.username + ' and password: ' + action.password);
-                if (action.username === 'trietnguyen308@gmail.com' && action.password === '123456') {
+
+                var data = DataAPI.getData(action.username, action.password);
+
+                if (data !== false) {
                     console.log('Log in successfully');
 
                     this._user = action.username;
 
-                    var user_info = {};
-                    user_info['username'] = action.username;
-                    localStorage.user = JSON.stringify(user_info);
+                    localStorage.user = JSON.stringify(data);
 
                     history.replaceState(null, '/');
                 }
