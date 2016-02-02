@@ -5,7 +5,6 @@
     "main": "app.js",
     "scripts": {
         "start": "npm run dev",
-        "start-dev": "npm run build & npm run dev",
         "build": "webpack --config webpack.config.js --progress --profile --colors",
         "dev": "webpack-dev-server --config webpack.config.js --progress --colors --port 8080"
     },
