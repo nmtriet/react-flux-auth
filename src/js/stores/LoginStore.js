@@ -1,6 +1,8 @@
+import jwt from 'jsonwebtoken';
 import BaseStore from './BaseStore';
 import history from '../utils/history';
 import DataAPI from '../utils/DataAPI';
+import {LOGIN_SECRET_KEY} from '../constants/LoginConstants';
 
 class LoginStore extends BaseStore {
     constructor() {
@@ -22,7 +24,10 @@ class LoginStore extends BaseStore {
 
                     this._user = action.username;
 
-                    localStorage.user = JSON.stringify(data);
+                    var token = jwt.sign(data, LOGIN_SECRET_KEY, {
+                        expiresInMinutes: 1440 // expires in 24 hours
+                    });
+                    localStorage.token = token;
 
                     history.replaceState(null, '/');
                 }
@@ -34,7 +39,7 @@ class LoginStore extends BaseStore {
                 console.log('Store receives Logout action');
 
                 this._user = null;
-                delete localStorage.user;
+                delete localStorage.token;
 
                 history.replaceState(null, '/');
 
@@ -54,10 +59,16 @@ class LoginStore extends BaseStore {
     }
 
     isLoggedIn() {
-        if (typeof localStorage.user != 'undefined') {
-            return true;
+        if (typeof localStorage.token != 'undefined') {
+            try {
+                var decoded = jwt.verify(localStorage.token, LOGIN_SECRET_KEY);
+                return decoded;
+            } catch (err) {
+                console.log(err);
+                return false;
+            }
         }
-        return false
+        return false;
     }
 }
 export default new LoginStore();
