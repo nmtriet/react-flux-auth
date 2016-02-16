@@ -1,6 +1,5 @@
 import AppDispatcher from '../dispatchers/AppDispatcher';
 import { Router, browserHistory } from 'react-router';
-import { createHistory, useBasename } from 'history';
 
 export default {
     loginUser: (username, password) => {

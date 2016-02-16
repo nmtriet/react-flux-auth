@@ -25,7 +25,7 @@ class LoginStore extends BaseStore {
                     this._user = action.username;
 
                     var token = jwt.sign(data, LOGIN_SECRET_KEY, {
-                        expiresInMinutes: 1440 // expires in 24 hours
+                        expiresIn: 1440 // expires in 24 hours
                     });
                     localStorage.token = token;
 

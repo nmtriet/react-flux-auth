@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import auth from '../utils/auth';
-import { createHistory, useBasename } from 'history';
 
 class Login extends React.Component {
     constructor(props) {

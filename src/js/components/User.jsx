@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import jwt from 'jsonwebtoken';
 import LoginStore from '../stores/LoginStore';
 
 class User extends React.Component {
