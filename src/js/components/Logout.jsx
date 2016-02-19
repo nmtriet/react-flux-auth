@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import auth from '../utils/auth';
+import LoginAction from '../actions/LoginAction';
 
 class Logout extends React.Component {
 	componentDidMount() {
-		auth.logout();
+		LoginAction.logout();
 	}
 
 	render() {

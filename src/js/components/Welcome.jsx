@@ -1,16 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import jwt from 'jsonwebtoken';
 import LoginStore from '../stores/LoginStore';
+import AuthenticatedComponent from './AuthenticatedComponent.jsx';
 
 class Welcome extends React.Component {
 	render() {
-		if (LoginStore.isLoggedIn()) {
-			var user_info = LoginStore.isLoggedIn();
-		}
 		return (
-			<span>Welcome {user_info['name'] ? user_info['name'] : ''}</span>
+			<span>Welcome {this.props.user}</span>
 		);
 	}
 }
-module.exports = Welcome;
+module.exports = AuthenticatedComponent(Welcome);

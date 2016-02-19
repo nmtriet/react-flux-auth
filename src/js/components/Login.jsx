@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import auth from '../utils/auth';
+import LoginAction from '../actions/LoginAction';
 
 class Login extends React.Component {
     constructor(props) {
@@ -10,18 +10,18 @@ class Login extends React.Component {
         };
     }
 
-    handleSubmit(event) {
+    _handleSubmit(event) {
         event.preventDefault();
 
         const email = this.refs.email.value;
         const password = this.refs.password.value;
 
-        auth.login(email, password);
+        LoginAction.login(email, password);
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit.bind(this)}>
+            <form onSubmit={this._handleSubmit.bind(this)}>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input ref="email" placeholder="email" id="email" className="form-control" defaultValue="trietnguyen308@gmail.com" />

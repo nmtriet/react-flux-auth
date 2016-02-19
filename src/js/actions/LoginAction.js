@@ -1,8 +1,9 @@
 import AppDispatcher from '../dispatchers/AppDispatcher';
 import { Router, browserHistory } from 'react-router';
+import history from '../utils/history';
 
 export default {
-    loginUser: (username, password) => {
+    login: (username, password) => {
         console.log('Login action dispatches to Store');
 
         AppDispatcher.dispatch({
@@ -10,13 +11,17 @@ export default {
             username: username,
             password: password
         });
+
+        history.replaceState(null, '/');
     },
     
-    logoutUser: () => {
+    logout: () => {
         console.log('Logout action dispatches to Store');
 
         AppDispatcher.dispatch({
             actionType: 'LOGOUT_USER'
         });
+
+        history.replaceState(null, '/');
     }
 }
