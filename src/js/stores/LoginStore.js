@@ -21,24 +21,31 @@ class LoginStore extends BaseStore {
         console.log(action);
         switch(action.actionType) {
             case LOGIN_USER_ACTION:
-                console.log('Store receives Login action with username: ' + action.username + ' and password: ' + action.password);
+                if (typeof action.jwt != 'undefined') {
+                    this._jwt = action.jwt;
 
-                var data = DataAPI.getData(action.username, action.password);
+                    var data = jwt.verify(action.jwt, LOGIN_SECRET_KEY);
+                    this._user = data['email'];
+                } else {
+                    console.log('Store receives Login action with username: ' + action.username + ' and password: ' + action.password);
 
-                if (data !== false) {
-                    console.log('Log in successfully');                    
+                    var data = DataAPI.getData(action.username, action.password);
 
-                    // Create token
-                    var token = jwt.sign(data, LOGIN_SECRET_KEY, {
-                        expiresIn: 1440 // expires in 24 hours
-                    });
+                    if (data !== false) {
+                        console.log('Log in successfully');                    
 
-                    // Set token to localStorage to use for authenticated requests
-                    localStorage.token = token;
+                        // Create token
+                        var token = jwt.sign(data, LOGIN_SECRET_KEY, {
+                            expiresIn: 1440 // expires in 24 hours
+                        });
 
-                    // Set state
-                    this._user = action.username;
-                    this._jwt = token;
+                        // Set token to localStorage to use for authenticated requests
+                        localStorage.jwt = token;
+
+                        // Set state
+                        this._user = action.username;
+                        this._jwt = token;
+                    }
                 }
 
                 this.emitChange();
@@ -47,7 +54,7 @@ class LoginStore extends BaseStore {
             case LOGOUT_USER_ACTION:
                 console.log('Store receives Logout action');
 
-                delete localStorage.token;
+                delete localStorage.jwt;
                 this._user = null;
                 this._jwt = null;
 
@@ -79,10 +86,10 @@ class LoginStore extends BaseStore {
 
     // Check user logged in
     isLoggedIn() {
-        if (typeof localStorage.token != 'undefined') {
+        if (typeof localStorage.jwt != 'undefined') {
             try {
-                var decoded = jwt.verify(localStorage.token, LOGIN_SECRET_KEY);
-                return decoded;
+                var decoded = jwt.verify(localStorage.jwt, LOGIN_SECRET_KEY);
+                return true;
             } catch (err) {
                 console.log(err);
                 return false;

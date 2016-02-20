@@ -14,6 +14,17 @@ export default {
 
         history.replaceState(null, '/');
     },
+
+    checkLogin: (jwt) => {
+        console.log('Login action dispatches to Store');
+
+        AppDispatcher.dispatch({
+            actionType: 'LOGIN_USER',
+            jwt: jwt
+        });
+
+        history.replaceState(null, '/');
+    },
     
     logout: () => {
         console.log('Logout action dispatches to Store');

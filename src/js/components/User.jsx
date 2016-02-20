@@ -1,12 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
+import jwt from 'jsonwebtoken';
 import LoginStore from '../stores/LoginStore';
+import AuthenticatedComponent from './AuthenticatedComponent.jsx';
+import {LOGIN_SECRET_KEY} from '../constants/LoginConstants';
 
 class User extends React.Component {
 	render() {
-		if (LoginStore.isLoggedIn()) {
-			var user_info = LoginStore.isLoggedIn();
-		}
+		var user_info = jwt.verify(this.props.jwt, LOGIN_SECRET_KEY);
 
 		return (
 			<div>
@@ -17,4 +18,4 @@ class User extends React.Component {
 		);
 	}
 }
-module.exports = User;
+module.exports = AuthenticatedComponent(User);
