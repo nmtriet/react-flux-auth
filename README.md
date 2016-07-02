@@ -32,7 +32,7 @@ npm start
 http://localhost:8080
 ```
 
-### Production Environment: Run in nginx
+### Production Environment: Run on server (Nginx, Apache, ...)
 
 1.Bundle all node modules into a javascript file. Using *path* and *filename* in *webpack.config.js* to specify the information of bundle file.
 
@@ -46,7 +46,7 @@ npm run build
 <script type="text/javascript" src="build/js/bundle.js"></script>
 ```
 
-3.Config nginx and run in browser.
+3.Config server and run in browser.
 
 ## Login
 
