@@ -3,14 +3,14 @@
 
 ![](demo.png)
 
-## Introduction:
+## Introduction
 
 * React: is a JavaSciprt library for creating user interfaces.
 * Flux: is application architecture that Facebook uses for building client-side web applications.
 * Webpack: is a tool for bundling all dependencies (node modules) into javascript file.
 * Babel: is a tool using for trasforming in your code, such as transform JSX to JS, ES6 to ES5.
 
-## Installation:
+## Installation
 
 ### Development Environment: Run in webpack-dev-server
 
@@ -46,7 +46,7 @@ npm run build
 <script type="text/javascript" src="build/js/bundle.js"></script>
 ```
 
-3.Config apache or nginx to run in browser.  
+3.Config nginx and run in browser.
 
 ## Login
 
