@@ -34,13 +34,19 @@ http://localhost:8080
 
 ### Production Environment: Run in nginx
 
-1.Bundle all node modules into a javascript file and include it into html by script tag. Using *path* and *filename* in *webpack.config.js* to specify the information of bundle file.
+1.Bundle all node modules into a javascript file. Using *path* and *filename* in *webpack.config.js* to specify the information of bundle file.
 
 ```
 npm run build 
 ``` 
 
-2.Config apache or nginx to run in browser.  
+2.Include it into html by script tag.
+
+```
+<script type="text/javascript" src="build/js/bundle.js"></script>
+```
+
+3.Config apache or nginx to run in browser.  
 
 ## Login
 
