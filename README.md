@@ -42,7 +42,7 @@ npm install
 		npm run build 
 		``` 
 
- 	* Include it into html by script tag.
+ 	* Include it into html.
 
 		```
 		<script type="text/javascript" src="build/js/bundle.js"></script>
