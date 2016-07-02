@@ -36,8 +36,6 @@ http://localhost:8080
 
 1.Bundle all node modules into a javascript file and include it into html by script tag. Using *path* and *filename* in *webpack.config.js* to specify the information of bundle file.
 
-Run
-
 ```
 npm run build 
 ``` 
