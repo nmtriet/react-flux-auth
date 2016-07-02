@@ -12,21 +12,23 @@
 
 ## Installation
 
-### Development Environment: Run on webpack-dev-server
-
 1.Install all node modules (build into *node_modules* folder) 
 
 ```
 npm install
 ```
 
-2.Start webpack-dev-server. You can change config of server (IP, port) in *package.json*. 
+2.Run
+
+### Development Environment: Run on webpack-dev-server
+
+ 1.Start webpack-dev-server. You can change config of server (IP, port) in *package.json*. 
 
 ```
 npm start  
 ```
 
-3.Go to url
+ 2.Go to url
 
 ```
 http://localhost:8080
@@ -34,19 +36,19 @@ http://localhost:8080
 
 ### Production Environment: Run on server (Nginx, Apache, ...)
 
-1.Bundle all node modules into a javascript file. Using *path* and *filename* in *webpack.config.js* to specify the information of bundle file.
+ 1.Bundle all files into a javascript file. Using *path* and *filename* in *webpack.config.js* to specify the information of bundle file.
 
 ```
 npm run build 
 ``` 
 
-2.Include it into html by script tag.
+ 2.Include it into html by script tag.
 
 ```
 <script type="text/javascript" src="build/js/bundle.js"></script>
 ```
 
-3.Config server and run in browser.
+ 3.Config server and run in browser.
 
 ## Login
 
