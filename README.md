@@ -26,7 +26,7 @@ npm install
 npm start  
 ```
 
-3. Go to url
+3.Go to url
 
 ```
 http://localhost:8080
@@ -34,7 +34,7 @@ http://localhost:8080
 
 ### Production Environment: Run in nginx
 
-1. Bundle all node modules into a javascript file and include it into html by script tag. Using *path* and *filename* in *webpack.config.js* to specify the information of bundle file.
+1.Bundle all node modules into a javascript file and include it into html by script tag. Using *path* and *filename* in *webpack.config.js* to specify the information of bundle file.
 
 Run
 
@@ -42,7 +42,7 @@ Run
 npm run build 
 ``` 
 
-2. Config apache or nginx to run in browser.  
+2.Config apache or nginx to run in browser.  
 
 ## Login
 
