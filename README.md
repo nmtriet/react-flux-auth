@@ -20,7 +20,7 @@ npm install
 
 2.Run
 
-* Development Environment: Run on webpack-dev-server*
+* Development Environment: Run on *webpack-dev-server*
 
 	* Start webpack-dev-server. You can change config of server (IP, port) in *package.json*.
 
