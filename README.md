@@ -12,7 +12,7 @@
 
 ## Installation
 
-### Development Environment: Run in webpack-dev-server
+### Development Environment: Run on webpack-dev-server
 
 1.Install all node modules (build into *node_modules* folder) 
 
@@ -54,3 +54,7 @@ npm run build
 Email: user1@gmail.com
 Password: 123456
 ```
+
+## Reference
+
+https://auth0.com/blog/2015/04/09/adding-authentication-to-your-react-flux-app/
