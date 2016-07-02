@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Link } from 'react-router';
-import LoginStore from '../stores/LoginStore';
 import Nav from './Nav.jsx';
 
 class App extends React.Component {

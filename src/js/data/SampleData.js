@@ -4,8 +4,8 @@ module.exports = {
         var data = JSON.stringify([
             {
                 id: '1',
-                name: 'Triet Nguyen',
-                email: 'trietnguyen308@gmail.com',
+                name: 'User 1',
+                email: 'user1@gmail.com',
                 password: '123456',
                 project: [
                     {
@@ -18,8 +18,8 @@ module.exports = {
             },
             {
                 id: '2',
-                name: 'Tuan Nguyen',
-                email: 'tuannguyen@gmail.com',
+                name: 'User 2',
+                email: 'user2@gmail.com',
                 password: '123456',
                 project: [
                     {
@@ -32,8 +32,8 @@ module.exports = {
             },
             {
                 id: '3',
-                name: 'Tri Nguyen',
-                email: 'tringuyen@gmail.com',
+                name: 'User 3',
+                email: 'user3@gmail.com',
                 password: '123456',
                 project: [
                     {

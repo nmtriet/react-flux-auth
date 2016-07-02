@@ -21,31 +21,22 @@ class LoginStore extends BaseStore {
         console.log(action);
         switch(action.actionType) {
             case LOGIN_USER_ACTION:
-                if (typeof action.jwt != 'undefined') {
-                    this._jwt = action.jwt;
+                var data = DataAPI.getData(action.username, action.password);
 
-                    var data = jwt.verify(action.jwt, LOGIN_SECRET_KEY);
-                    this._user = data['email'];
-                } else {
-                    console.log('Store receives Login action with username: ' + action.username + ' and password: ' + action.password);
+                if (data !== false) {
+                    console.log('Log in successfully');
 
-                    var data = DataAPI.getData(action.username, action.password);
+                    // Create token
+                    var token = jwt.sign(data, LOGIN_SECRET_KEY, {
+                        expiresIn: 1440 // expires in 24 hours
+                    });
 
-                    if (data !== false) {
-                        console.log('Log in successfully');                    
+                    // Set token to localStorage to use for authenticated requests
+                    localStorage.jwt = token;
 
-                        // Create token
-                        var token = jwt.sign(data, LOGIN_SECRET_KEY, {
-                            expiresIn: 1440 // expires in 24 hours
-                        });
-
-                        // Set token to localStorage to use for authenticated requests
-                        localStorage.jwt = token;
-
-                        // Set state
-                        this._user = action.username;
-                        this._jwt = token;
-                    }
+                    // Set state
+                    this._user = action.username;
+                    this._jwt = token;
                 }
 
                 this.emitChange();
