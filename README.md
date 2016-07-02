@@ -14,17 +14,13 @@
 
 ### Development Environment: Run in webpack-dev-server
 
-1. Install all node modules (build into *node_modules* folder)
-
-Run:
+1. Install all node modules (build into *node_modules* folder)  
 
 ```
 npm install  
 ```
 
-2. Start webpack-dev-server. You can change config of server (IP, port) in *package.json*.  
-
-Run
+2. Start webpack-dev-server. You can change config of server (IP, port) in *package.json*.
 
 ```
 npm start  
