@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run dev",
     "build": "webpack --config webpack.config.js --progress --profile --colors",
-    "dev": "webpack-dev-server --config webpack.config.js --progress --colors --host 11.22.33.9 --port 8080"
+    "dev": "webpack-dev-server --config webpack.config.js --progress --colors --port 8080"
   },
   "author": "",
   "license": "ISC",
